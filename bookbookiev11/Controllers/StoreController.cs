@@ -13,10 +13,12 @@ namespace bookbookiev11.Controllers
     public class StoreController : Controller
     {
         private readonly ApplicationDbContext _context;
+       
 
         public StoreController(ApplicationDbContext context)
         {
             _context = context;
+            
         }
 
         // GET: Store
@@ -38,6 +40,7 @@ namespace bookbookiev11.Controllers
             return View(await searchQuery.AsNoTracking().ToListAsync());
         }
 
+        
         // GET: Store/Details/5
         public async Task<IActionResult> Details(int? id)
         {

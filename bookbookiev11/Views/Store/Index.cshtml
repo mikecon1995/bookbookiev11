@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_storeLayout.cshtml";
 }
 
+
 <h1>Index</h1>
+
 <div class="container" style="margin-top: 30px; margin-bottom: 30px; ">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach (var item in Model)
@@ -19,6 +21,7 @@
                             <p class="card-text">Author: @Html.DisplayFor(modelItem => item.author)</p>
                             <p class="price">Price: $@Html.DisplayFor(modelItem => item.price)</p>
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">See More</a>
+                            <a asp-controller="Checkout" asp-action="AddToShoppingCart" asp-route-id="@item.Id" class="btn btn-success">Add To Cart</a>
                         </div>
                     </div>
                     <div class="card-footer">

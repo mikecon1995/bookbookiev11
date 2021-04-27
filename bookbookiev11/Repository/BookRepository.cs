@@ -1,35 +1,27 @@
 ﻿using bookbookiev11.Data;
+using bookbookiev11.Interface;
 using bookbookiev11.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace bookbookiev11.Repsitory
+namespace bookbookiev11.Repository
 {
-    public class BookRepository
+    public class BookRepository : IBook
     {
         private readonly ApplicationDbContext _Context;
-        public BookRepository(ApplicationDbContext context)
+        public BookRepository(ApplicationDbContext Context)
         {
-            _Context = context;
+            Context = _Context;
         }
-        
-        
-        
-       
-        public List<BookModel> GetBookTitle(String title)
-        {
-            return DataSource().Where(x => x.title.Contains(title)).ToList();
-        }
-        private List<BookModel> DataSource()
-        {
-            return new List<BookModel>()
-            {
 
+        public IEnumerable<BookModel> books { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEnumerable<BookModel> featured => _Context.BookModel.Where(p => p.isFeatured);
 
-            };
-        }
+        IEnumerable<BookModel> IBook.featured { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public BookModel GetBookById(int bookId) =>  _Context.BookModel.FirstOrDefault(p => p.Id == bookId);
+        
     }
 }
