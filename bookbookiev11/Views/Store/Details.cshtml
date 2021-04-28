@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid text-center" style="margin-bottom: 30px;padding: 25px;">
+<div class="container-fluid text-center" style="margin-bottom: 30px; padding: 25px;">
     <img src="~/images/BookBookielogo.png" />
     <h1 class="display-1"> Welcome To Your Last Book Store.</h1>
 </div>
@@ -24,12 +24,12 @@
                     <div class="card-header">
                         @Html.DisplayFor(model => model.title)
                         <div class="card-body">
-                            <h5 class="card-title">@Html.DisplayFor(model => model.author)</h5>
-                            <p class="card-text">@Html.DisplayFor(model => model.description)</p>
-                            <p class="card-text">@Html.DisplayFor(model => model.price)</p>
-                            <p class="card-text">@Html.DisplayFor(model => model.ISBN)</p>
-                            <p class="card-text">@Html.DisplayFor(model => model.ISBN13)</p>
-                            <a href="/Checkout/Index" class="btn-outline-success">Add To Cart</a>
+                            <h5 class="card-title">Author: @Html.DisplayFor(model => model.author)</h5>
+                            <p class="card-text">Description: @Html.DisplayFor(model => model.description)</p>
+                            <p class="card-text">Price: $@Html.DisplayFor(model => model.price)</p>
+                            <p class="card-text">ISBN: @Html.DisplayFor(model => model.ISBN)</p>
+                            <p class="card-text">ISBN13: @Html.DisplayFor(model => model.ISBN13)</p>
+                            <a href="/Checkout/Index" class="btn btn-success">Add To Cart</a>
                         </div>
                     </div>
                 </div>
@@ -82,5 +82,5 @@
             </dl>
         </div>
         <div>
-            <a asp-action="Index">Back to List</a>
+            <a class="btn btn-success" asp-action="Index">Back to List</a>
         </div>
