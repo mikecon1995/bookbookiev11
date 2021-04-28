@@ -25,15 +25,16 @@ namespace bookbookiev11.Controllers
         
         public ViewResult Index()
         {
-            var items = _shoppingCartRepo.GetShoppingCartItems();
-            _shoppingCartRepo.ShoppingCartItems = items;
+            //var items = _shoppingCartRepo.GetShoppingCartItems();
+            //_shoppingCartRepo.ShoppingCartItems = items;
 
-            var sCVM = new ShoppingCartViewModel
-            {
-                ShoppingCart = _shoppingCartRepo,
-                ShoppingCartTotal = _shoppingCartRepo.GetShoppingCartTotal()
-            };
-            return View(sCVM);
+            //var sCVM = new ShoppingCartViewModel
+            // {
+            //ShoppingCart = _shoppingCartRepo,
+            //ShoppingCartTotal = _shoppingCartRepo.GetShoppingCartTotal()
+            //};
+            //return View(sCVM);
+            return View();
         }
         public RedirectToActionResult AddToShoppingCart(int bookId)
         {

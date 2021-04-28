@@ -29,7 +29,7 @@
                             <p class="price">Price: $@Html.DisplayFor(modelItem => item.price)</p>
 
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">See More</a>
-                            <a asp-controller="Checkout" asp-action="AddToShoppingCart" asp-route-id="@item.Id" class="btn btn-success">Add To Cart</a>
+                            <a href="~/Checkout/Index" class="btn btn-success">Buy Now</a>
                         </div>
                     </div>
                     <div class="card-footer">

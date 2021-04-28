@@ -7,18 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using bookbookiev11.Data;
 using bookbookiev11.Models;
+using bookbookiev11.Repository;
+using bookbookiev11.Interface;
 
 namespace bookbookiev11.Controllers
 {
     public class StoreController : Controller
     {
         private readonly ApplicationDbContext _context;
-       
+        private readonly IBook _bookRepository;
+        private readonly ShoppingCartRepo _shoppingCartRepo;
 
-        public StoreController(ApplicationDbContext context)
+        public StoreController(ApplicationDbContext context, ShoppingCartRepo shoppingCartRepo)
         {
             _context = context;
-            
+            _shoppingCartRepo = shoppingCartRepo;
         }
 
         // GET: Store
@@ -66,6 +69,15 @@ namespace bookbookiev11.Controllers
         public IActionResult NewRelease()
         {
             return View(_context.BookModel.Where(x => x.isNewRelease).ToList());
+        }
+        public RedirectToActionResult AddToShoppingCart(int bookId)
+        {
+            var selectedBook = _bookRepository.books.FirstOrDefault(p => p.Id == bookId);
+            if (selectedBook != null)
+            {
+                _shoppingCartRepo.AddToCart(selectedBook, 1);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

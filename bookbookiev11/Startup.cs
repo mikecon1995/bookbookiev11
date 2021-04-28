@@ -42,7 +42,7 @@ namespace bookbookiev11
             services.AddControllersWithViews();
 
             
-            services.AddTransient<IBook, BookRepository>();
+            services.AddTransient<IBook, _BookRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCartRepo.GetCart(sp));
             
