@@ -16,7 +16,7 @@ namespace bookbookiev11.Repository
             Context = _Context;
         }
 
-        public IEnumerable<BookModel> books { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEnumerable<BookModel> books { get; set; }
         public IEnumerable<BookModel> featured => _Context.BookModel.Where(p => p.isFeatured);
 
         IEnumerable<BookModel> IBook.featured { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

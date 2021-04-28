@@ -6,7 +6,14 @@
 }
 
 
-<h1>Index</h1>
+<div class="container-fluid text-center" style="margin-bottom: 30px;padding: 25px;">
+    <img src="~/images/BookBookielogo.png" />
+    <h1 class="display-1"> Welcome To Your Last Book Store.</h1>
+</div>
+
+<div class="container-fluid bg-dark text-center text-white" style="padding: 25px;">
+    <h1 class="display-1">Store</h1>
+</div>
 
 <div class="container" style="margin-top: 30px; margin-bottom: 30px; ">
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -20,6 +27,7 @@
                             <h5 class="card-title">Title: @Html.DisplayFor(modelItem => item.title)</h5>
                             <p class="card-text">Author: @Html.DisplayFor(modelItem => item.author)</p>
                             <p class="price">Price: $@Html.DisplayFor(modelItem => item.price)</p>
+
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">See More</a>
                             <a asp-controller="Checkout" asp-action="AddToShoppingCart" asp-route-id="@item.Id" class="btn btn-success">Add To Cart</a>
                         </div>

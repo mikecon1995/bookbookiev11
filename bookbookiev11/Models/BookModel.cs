@@ -30,10 +30,10 @@ namespace bookbookiev11.Models
         public int price { get; set; }
 
         public string description { get; set; }
+    
+        public long ISBN { get; set; }
 
-        public int ISBN { get; set; }
-
-        public int ISBN13 { get; set; }
+        public long ISBN13 { get; set; }
 
         public bool isFeatured { get; set; }
 
